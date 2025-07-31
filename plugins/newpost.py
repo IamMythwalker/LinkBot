@@ -1,4 +1,4 @@
-# +++ Modified By Yato [telegram username: @i_killed_my_clan & @ProYato] +++ # aNDI BANDI SANDI JISNE BHI CREDIT HATAYA USKI BANDI RAndi 
+
 import asyncio
 import base64
 from bot import Bot
@@ -33,7 +33,7 @@ async def set_channel(client: Bot, message: Message):
     try:
         channel_id = int(message.command[1])
     except (IndexError, ValueError):
-        return await message.reply("<b><blockquote expandable>Iɴᴠᴀʟɪᴅ ᴄʜᴀɴɴᴇʟ ID. Exᴀᴍᴘʟᴇ: <code>/setchannel &lt;channel_id&gt;</code></b>")
+        return await message.reply("<b><blockquote expandable>Iɴᴠᴀʟɪᴅ ᴄʜᴀɴɴᴇʟ ID. Exᴀᴍᴘʟᴇ: <code>/addch &lt;channel_id&gt;</code></b>")
     
     try:
         chat = await client.get_chat(channel_id)

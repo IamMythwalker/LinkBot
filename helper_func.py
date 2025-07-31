@@ -1,4 +1,4 @@
-# +++ Modified By Yato [telegram username: @i_killed_my_clan & @ProYato] +++ # aNDI BANDI SANDI JISNE BHI CREDIT HATAYA USKI BANDI RAndi 
+
 import base64
 import re
 import asyncio
@@ -30,6 +30,15 @@ async def encode(string):
     base64_bytes = base64.urlsafe_b64encode(string_bytes)
     base64_string = (base64_bytes.decode("ascii")).strip("=")
     return base64_string
+
+async def delete_after_delay(message, delay):
+    """Delete a message after a specified delay"""
+    await asyncio.sleep(delay)
+    try:
+        await message.delete()
+    except:
+        pass
+
 
 async def decode(base64_string):
     base64_string = base64_string.strip("=")

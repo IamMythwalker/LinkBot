@@ -5,13 +5,7 @@ from config import OWNER_ID, BOT_STATS_TEXT, USER_REPLY_TEXT
 from datetime import datetime
 from helper_func import get_readable_time
 
-"""
-@Bot.on_message(filters.private & filters.incoming)
-async def useless(_,message: Message):
-    if USER_REPLY_TEXT:
-        await message.reply(USER_REPLY_TEXT)
 
-"""
 
 @Bot.on_message(filters.command('stats') & filters.user(OWNER_ID))
 async def stats(bot: Bot, message: Message):

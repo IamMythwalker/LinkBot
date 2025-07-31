@@ -1,25 +1,25 @@
-# +++ Modified By Yato [telegram username: @i_killed_my_clan & @ProYato] +++ # aNDI BANDI SANDI JISNE BHI CREDIT HATAYA USKI BANDI RAndi 
+
 import os
 from os import environ
 import logging
 from logging.handlers import RotatingFileHandler
 
 # Recommended
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-APP_ID = int(os.environ.get("APP_ID", ""))
-API_HASH = os.environ.get("API_HASH", "")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "8198964138:AAH3mIYNPNmfMEIScUgJF1P1NZPWqeYZvIY")
+APP_ID = int(os.environ.get("APP_ID", "22505271"))
+API_HASH = os.environ.get("API_HASH", "c89a94fcfda4bc06524d0903977fc81e")
 
 # Main
-OWNER_ID = int(os.environ.get("OWNER_ID", "6497757690"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "7562536848"))
 PORT = os.environ.get("PORT", "8080")
 
 # Database
-DB_URI = os.environ.get("DB_URI", "")
+DB_URI = os.environ.get("DB_URI", "mongodb://mythwalker45:EmbracedMyth7@ac-t0ouz1b-shard-00-00.pvf15kr.mongodb.net:27017,ac-t0ouz1b-shard-00-01.pvf15kr.mongodb.net:27017,ac-t0ouz1b-shard-00-02.pvf15kr.mongodb.net:27017/?ssl=true&replicaSet=atlas-p26atf-shard-0&authSource=admin&retryWrites=true&w=majority")
 DB_NAME = os.environ.get("DB_NAME", "link")
 
 #Auto approve 
 CHAT_ID = [int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in environ.get('CHAT_ID', '').split()] # dont change anything 
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "<b>{mention},\n\nʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {title} ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.\n\‣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Codeflix_Bots</b>")
+TEXT = environ.get("APPROVED_WELCOME_TEXT", "<b>{mention},\n\nʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {title} ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.\n\‣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @AnimeCrescent</b>")
 APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Default
@@ -27,49 +27,64 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "40"))
 #--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 
 # Start pic
-START_PIC_FILE_ID = "https://telegra.ph/file/f3d3aff9ec422158feb05-d2180e3665e0ac4d32.jpg"
-START_IMG = "https://telegra.ph/file/f3d3aff9ec422158feb05-d2180e3665e0ac4d32.jpg"
+START_PIC_FILE_ID = "https://telegra.ph/file/b2fd85c2e657755974a38.jpg"
+START_PIC = "https://telegra.ph/file/b2fd85c2e657755974a38.jpg"
 # Messages
-START_MSG = os.environ.get("START_MESSAGE", "<b>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ ᴀᴅᴠᴀɴᴄᴇᴅ ʟɪɴᴋs sʜᴀʀɪɴɢ ʙᴏᴛ. ᴡɪᴛʜ ᴛʜɪs ʙᴏᴛ, ʏᴏᴜ ᴄᴀɴ sʜᴀʀᴇ ʟɪɴᴋs ᴀɴᴅ ᴋᴇᴇᴘ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟs sᴀғᴇ ғʀᴏᴍ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇs.\n\n<blockquote>‣ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href='https://t.me/codeflix_bots'>ʏᴀᴛᴏ</a></blockquote></b>")
-HELP = os.environ.get("HELP_MESSAGE", "<b><blockquote expandable>» Creator: <a href=https://t.me/proyato>Yato</a>\n» Our Community: <a href=https://t.me/otakuflix_network>Flix Network</a>\n» Anime Channel: <a href=https://t.me/animes_cruise>Anime Cruise</a>\n» Ongoing Anime: <a href=https://t.me/Ongoing_cruise>Ongoing cruise</a>\n» Developer: <a href=https://t.me/onlyyuji>Yuji</a></b>")
-ABOUT = os.environ.get("ABOUT_MESSAGE", "<b><blockquote expandable>This bot is developed by Yato (@ProYato) to securely share Telegram channel links with temporary invite links, protecting your channels from copyright issues.</b>")
+START_MSG = os.environ.get(
+    "START_MESSAGE",
+    """<b>👋 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴀɴɪᴍᴇ ᴄʀᴇsᴄᴇɴᴛ'ꜱ ʟɪɴᴋ sʜᴀʀɪɴɢ ʙᴏᴛ!</b>\n
+<blockquote><b>➤</b> ɪ ᴄᴀɴ ʜᴇʟᴘ ʏᴏᴜ ɢᴇᴛ ʟɪɴᴋs ᴏғ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ</blockquote>\n
+<blockquote>🔹 ᴘʀᴏᴜᴅʟʏ ᴘᴏᴡᴇʀᴇᴅ ʙʏ <a href="https://t.me/AnimeCrescent">@AnimeCrescent</a></blockquote>\n
+<blockquote>🔹 ᴍᴀɴᴀɢᴇᴅ ʙʏ <a href="https://t.me/ThatKlein">ᴅɪᴠɪɴᴇ</a></blockquote>"""
+)
+HELP = os.environ.get(
+    "HELP_MESSAGE",
+    """<b><blockquote expandable>
+» ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ: <a href="https://t.me/AnimeCrescent">@ᴀɴɪᴍᴇᴄʀᴇsᴄᴇɴᴛ</a>\n
+» ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/ThatKlein">ᴅɪᴠɪɴᴇ</a>
+</blockquote></b>"""
+)
+ABOUT = os.environ.get(
+    "ABOUT_MESSAGE",
+    """<b><blockquote expandable>
+ᴛʜɪs ʙᴏᴛ ɪs ᴍᴀɴᴀɢᴇᴅ ʙʏ <a href="https://t.me/AnimeCrescent">ᴀɴɪᴍᴇ ᴄʀᴇsᴄᴇɴᴛ</a> ᴛᴏ sᴀғᴇʟʏ sʜᴀʀᴇ ᴄʜᴀɴɴᴇʟ ʟɪɴᴋs ᴜsɪɴɢ ᴛᴇᴍᴘᴏʀᴀʀʏ ɪɴᴠɪᴛᴇs!
+</blockquote></b>"""
+)
 
-ABOUT_TXT = """<b>›› ᴄᴏᴍᴍᴜɴɪᴛʏ: <a href='https://t.me/otakuflix_network'>ᴏᴛᴀᴋᴜғʟɪx</a>
-<blockquote expandable>›› ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ: <a href='https://t.me/codeflix_bots'>Cʟɪᴄᴋ ʜᴇʀᴇ</a>
-›› ᴏᴡɴᴇʀ: <a href='https://t.me/cosmic_freak'>ʏᴀᴛᴏ</a>
-›› ʟᴀɴɢᴜᴀɢᴇ: <a href='https://docs.python.org/3/'>Pʏᴛʜᴏɴ 3</a>
-›› ʟɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ ᴠ2</a>
-›› ᴅᴀᴛᴀʙᴀsᴇ: <a href='https://www.mongodb.com/docs/'>Mᴏɴɢᴏ ᴅʙ</a>
-›› ᴅᴇᴠᴇʟᴏᴘᴇʀ: @ProYato</b></blockquote>""" # Bhosdiwalo agar developer me Yato ka username hataya to agli baar se koi repo public nhi krunga!!
+ABOUT_TXT = """<b>›› ᴄᴏᴍᴍᴜɴɪᴛʏ: <a href='https://t.me/AnimeCrescent'>ᴀɴɪᴍᴇ ᴄʀᴇsᴄᴇɴᴛ</a>
+<blockquote expandable>
+›› ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ: <a href='https://t.me/AnimeCrescent'>Cʟɪᴄᴋ ʜᴇʀᴇ</a>
+›› ᴏᴡɴᴇʀ: <a href='https://t.me/ThatKlein'>ᴅɪᴠɪɴᴇ</a>
+›› ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href='https://t.me/ThatKlein'>ᴅɪᴠɪɴᴇ</a>
+</b></blockquote>"""
 
-CHANNELS_TXT = """<b>›› ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ: <a href='https://t.me/animes_cruise'>ᴀɴɪᴍᴇ ᴄʀᴜɪsᴇ</a>
-<blockquote expandable>›› ᴍᴏᴠɪᴇs: <a href='https://t.me/movieflixspot'>ᴍᴏᴠɪᴇғʟɪx sᴘᴏᴛ</a>
-›› ᴡᴇʙsᴇʀɪᴇs: <a href='https://t.me/webseries_flix'>ᴡᴇʙsᴇʀɪᴇs ғʟɪx</a>
-›› ᴀᴅᴜʟᴛ ᴄʜᴀɴɴᴇʟs: <a href='https://t.me/hanime_arena'>ᴄᴏʀɴʜᴜʙ</a>
-›› ᴍᴀɴʜᴡᴀ ᴄʜᴀɴɴᴇʟ: <a href='https://t.me/pornhwa_flix'>ᴘᴏʀɴʜᴡᴀ</a>
-›› ᴄᴏᴍᴍᴜɴɪᴛʏ: <a href='https://t.me/otakuflix_network'>ᴏᴛᴀᴋᴜғʟɪx</a>
-›› ᴅᴇᴠᴇʟᴏᴘᴇʀ: @ProYato</b></blockquote>""" # Bhosdiwalo agar developer me Yato ka username hataya to agli baar se koi repo public nhi krunga!!
+CHANNELS_TXT = """<b>›› ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ: <a href='https://t.me/AnimeCrescent'>ᴀɴɪᴍᴇ ᴄʀᴇsᴄᴇɴᴛ</a>
+<blockquote expandable>
+›› ᴜᴘᴅᴀᴛᴇs: <a href='https://t.me/redirectcrescent_updates'>ʀᴇᴅɪʀᴇᴄᴛ ᴄʀᴇsᴄᴇɴᴛ</a>
+›› ʜ-ᴀɴɪᴍᴇ: <a href='https://t.me/culturedcrescent'>ᴄᴜʟᴛᴜʀᴇᴅ ᴄʀᴇsᴄᴇɴᴛ</a>
+›› ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href='https://t.me/ThatKlein'>ᴅɪᴠɪɴᴇ</a>
+</b></blockquote>"""
 
 #--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 # Default
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
-USER_REPLY_TEXT = "⚠️ ғᴜᴄᴋ ʏᴏᴜ, ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ ᴍᴀsᴛᴇʀ. ɢᴏ ᴀᴡᴀʏ, ʙɪᴛᴄʜ 🙃!"
+USER_REPLY_TEXT = "👊 ʙᴀᴋᴀ! ɪ'ᴍ ʟᴏʏᴀʟ ᴛᴏ ᴍʏ ᴏᴡɴᴇʀs.\n» <a href='https://t.me/AnimeCrescent'>ᴀɴɪᴍᴇ ᴄʀᴇsᴄᴇɴᴛ</a>"
 
 # Logging
 LOG_FILE_NAME = "links-sharingbot.txt"
-DATABASE_CHANNEL = int(os.environ.get("DATABASE_CHANNEL", "")) # Channel where user links are stored
+DATABASE_CHANNEL = int(os.environ.get("DATABASE_CHANNEL", "-1002805951723")) # Channel where user links are stored
 #--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 
 try:
     ADMINS = []
-    for x in (os.environ.get("ADMINS", "6497757690").split()):
+    for x in (os.environ.get("ADMINS", "7562536848").split()):
         ADMINS.append(int(x))
 except ValueError:
     raise Exception("Your Admins list does not contain valid integers.")
 
 # Admin == OWNER_ID
 ADMINS.append(OWNER_ID)
-ADMINS.append(6497757690)
+ADMINS.append(7562536848)
 
 
 logging.basicConfig(
