@@ -15,6 +15,7 @@ name = """
 Links Sharing Started
 """
 
+
 class Bot(Client):
     def __init__(self):
         super().__init__(
@@ -40,10 +41,12 @@ class Bot(Client):
                 parse_mode=ParseMode.HTML
             )
         except Exception as e:
-            self.LOGGER(__name__).warning(f"Failed to notify owner ({OWNER_ID}) of bot start: {e}")
+            self.LOGGER(__name__).warning(
+                f"Failed to notify owner ({OWNER_ID}) of bot start: {e}")
 
         self.set_parse_mode(ParseMode.HTML)
-        self.LOGGER(__name__).info("Bot Running..!\n\nCreated by \nhttps://t.me/AnimeCrescent")
+        self.LOGGER(__name__).info(
+            "Bot Running..!\n\nCreated by \nhttps://t.me/AnimeCrescent")
         self.LOGGER(__name__).info(f"{name}")
         self.username = usr_bot_me.username
 
@@ -53,13 +56,15 @@ class Bot(Client):
             await app.setup()
             bind_address = "0.0.0.0"
             await web.TCPSite(app, bind_address, PORT).start()
-            self.LOGGER(__name__).info(f"Web server started on {bind_address}:{PORT}")
+            self.LOGGER(__name__).info(
+                f"Web server started on {bind_address}:{PORT}")
         except Exception as e:
             self.LOGGER(__name__).error(f"Failed to start web server: {e}")
 
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped.")
+
 
 # Global cancel flag for broadcast
 is_canceled = False

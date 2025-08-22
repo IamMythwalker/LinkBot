@@ -6,7 +6,6 @@ from datetime import datetime
 from helper_func import get_readable_time
 
 
-
 @Bot.on_message(filters.command('stats') & filters.user(OWNER_ID))
 async def stats(bot: Bot, message: Message):
     now = datetime.now()

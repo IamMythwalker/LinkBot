@@ -1,0 +1,94 @@
+[31-Jul-25 15:07:25 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[31-Jul-25 15:07:25 - INFO] - bot - 
+Links Sharing Started
+
+[31-Jul-25 15:07:25 - INFO] - bot - Web server started on 0.0.0.0:8080
+[31-Jul-25 15:08:45 - ERROR] - pyrogram.dispatcher - name 'ogress_bar' is not defined
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/storage/emulated/0/Links-Share-Bot/plugins/start.py", line 460, in send_text
+    <b>📊 ᴘʀᴏɢʀᴇss:{ogress_bar}] {percent_complete:.0%}
+                    ^^^^^^^^^^
+NameError: name 'ogress_bar' is not defined. Did you mean: 'progress_bar'?
+[31-Jul-25 15:09:51 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[31-Jul-25 15:09:51 - INFO] - bot - 
+Links Sharing Started
+
+[31-Jul-25 15:09:51 - INFO] - bot - Web server started on 0.0.0.0:8080
+[31-Jul-25 15:15:03 - ERROR] - pyrogram.dispatcher - 'NoneType' object has no attribute 'status'
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/pyrogram/dispatcher.py", line 240, in handler_worker
+    await handler.callback(self.client, *args)
+  File "/storage/emulated/0/Links-Share-Bot/plugins/fsub.py", line 211, in handle_chat_member_update
+    if chat_member_updated.new_chat_member.status in [
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'status'
+[02-Aug-25 22:54:24 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[02-Aug-25 22:54:24 - INFO] - bot - 
+Links Sharing Started
+
+[02-Aug-25 22:54:24 - INFO] - bot - Web server started on 0.0.0.0:8080
+[02-Aug-25 22:56:19 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[02-Aug-25 22:56:19 - INFO] - bot - 
+Links Sharing Started
+
+[02-Aug-25 22:56:19 - INFO] - bot - Web server started on 0.0.0.0:8080
+[03-Aug-25 09:31:34 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[03-Aug-25 09:31:34 - INFO] - bot - 
+Links Sharing Started
+
+[03-Aug-25 09:31:34 - INFO] - bot - Web server started on 0.0.0.0:8080
+[03-Aug-25 09:34:32 - INFO] - root - Stop signal received (SIGINT). Exiting...
+[03-Aug-25 09:34:32 - INFO] - bot - Bot stopped.
+[03-Aug-25 10:33:27 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[03-Aug-25 10:33:27 - INFO] - bot - 
+Links Sharing Started
+
+[03-Aug-25 10:33:27 - INFO] - bot - Web server started on 0.0.0.0:8080
+[03-Aug-25 10:36:28 - INFO] - root - Stop signal received (SIGINT). Exiting...
+[03-Aug-25 10:36:30 - INFO] - bot - Bot stopped.
+[03-Aug-25 11:01:07 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[03-Aug-25 11:01:07 - INFO] - bot - 
+Links Sharing Started
+
+[03-Aug-25 11:01:07 - INFO] - bot - Web server started on 0.0.0.0:8080
+[03-Aug-25 11:05:20 - INFO] - root - Stop signal received (SIGINT). Exiting...
+[03-Aug-25 11:05:20 - INFO] - bot - Bot stopped.
+[03-Aug-25 11:22:43 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[03-Aug-25 11:22:43 - INFO] - bot - 
+Links Sharing Started
+
+[03-Aug-25 11:22:43 - INFO] - bot - Web server started on 0.0.0.0:8080
+[03-Aug-25 22:51:05 - INFO] - bot - Bot Running..!
+
+Created by 
+https://t.me/AnimeCrescent
+[03-Aug-25 22:51:05 - INFO] - bot - 
+Links Sharing Started
+
+[03-Aug-25 22:51:05 - INFO] - bot - Web server started on 0.0.0.0:8080

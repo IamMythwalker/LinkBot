@@ -7,6 +7,7 @@ from pyrogram.types import Message, User, ChatJoinRequest, InlineKeyboardMarkup,
 from pyrogram.errors import FloodWait, ChatAdminRequired, RPCError
 from database.database import set_approval_off, is_approval_off, add_admin, remove_admin, list_admins
 
+
 @Client.on_message(filters.command("addadmin") & filters.user(OWNER_ID))
 async def add_admin_command(client, message: Message):
     if len(message.command) != 2 or not message.command[1].isdigit():
@@ -17,6 +18,7 @@ async def add_admin_command(client, message: Message):
         await message.reply_text(f"✅ ᴜsᴇʀ <code>{user_id}</code> ᴀᴅᴅᴇᴅ ᴀs ᴀᴅᴍɪɴ.")
     else:
         await message.reply_text(f"❌ ꜰᴀɪʟᴇᴅ ᴛᴏ ᴀᴅᴅ ᴀᴅᴍɪɴ <code>{user_id}</code>.")
+
 
 @Client.on_message(filters.command("deladmin") & filters.user(OWNER_ID))
 async def del_admin_command(client, message: Message):
@@ -29,10 +31,12 @@ async def del_admin_command(client, message: Message):
     else:
         await message.reply_text(f"❌ ꜰᴀɪʟᴇᴅ ᴛᴏ ʀᴇᴍᴏᴠᴇ ᴀᴅᴍɪɴ <code>{user_id}</code>.")
 
+
 @Client.on_message(filters.command("admins") & filters.user(OWNER_ID))
 async def list_admins_command(client, message: Message):
     admins = await list_admins()
     if not admins:
         return await message.reply_text("⚠️ ɴᴏ ᴀᴅᴍɪɴs ꜰᴏᴜɴᴅ.")
-    text = "<b> ᴀᴅᴍɪɴ ᴜsᴇʀ ɪᴅs:</b>\n" + "\n".join([f"<code>{uid}</code>" for uid in admins])
+    text = "<b> ᴀᴅᴍɪɴ ᴜsᴇʀ ɪᴅs:</b>\n" + \
+        "\n".join([f"<code>{uid}</code>" for uid in admins])
     await message.reply_text(text)

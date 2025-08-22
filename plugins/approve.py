@@ -9,17 +9,24 @@ from database.database import set_approval_off, is_approval_off
 from helper_func import *
 
 # Default settings
-APPROVAL_WAIT_TIME = 5  # seconds 
-AUTO_APPROVE_ENABLED = True  # Toggle for enabling/disabling auto approval 
+APPROVAL_WAIT_TIME = 5  # seconds
+AUTO_APPROVE_ENABLED = True  # Toggle for enabling/disabling auto approval
+
 
 async def get_user_client():
     global user_client
     if user_client is None:
-        user_client = UserClient("userbot", session_string=USER_SESSION, api_id=APP_ID, api_hash=API_HASH)
+        user_client = UserClient(
+            "userbot",
+            session_string=USER_SESSION,
+            api_id=APP_ID,
+            api_hash=API_HASH)
         await user_client.start()
     return user_client
 
-@Client.on_chat_join_request((filters.group | filters.channel) & filters.chat(CHAT_ID) if CHAT_ID else (filters.group | filters.channel))
+
+@Client.on_chat_join_request((filters.group | filters.channel) & filters.chat(
+    CHAT_ID) if CHAT_ID else (filters.group | filters.channel))
 async def autoapprove(client, message: ChatJoinRequest):
     global AUTO_APPROVE_ENABLED
 
@@ -35,30 +42,36 @@ async def autoapprove(client, message: ChatJoinRequest):
         return
 
     print(f"{user.first_name} ʀᴇǫᴜᴇsᴛᴇᴅ ᴛᴏ ᴊᴏɪɴ {chat.title}")
-    
+
     await asyncio.sleep(APPROVAL_WAIT_TIME)
 
     # Check if user is already a participant before approving
     try:
         member = await client.get_chat_member(chat.id, user.id)
         if member.status in ["member", "administrator", "creator"]:
-            print(f"ᴜsᴇʀ {user.id} ɪs ᴀʟʀᴇᴀᴅʏ ᴀ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛ ᴏꜰ {chat.id}, sᴋɪᴘᴘɪɴɢ ᴀᴘᴘʀᴏᴠᴀʟ.")
+            print(
+                f"ᴜsᴇʀ {
+                    user.id} ɪs ᴀʟʀᴇᴀᴅʏ ᴀ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛ ᴏꜰ {
+                    chat.id}, sᴋɪᴘᴘɪɴɢ ᴀᴘᴘʀᴏᴠᴀʟ.")
             return
     except UserNotParticipant:
         # User is not a member, handle accordingly
         pass
 
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
-    
+
     if APPROVED == "on":
         invite_link = await client.export_chat_invite_link(chat.id)
         buttons = [
-            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •', url='https://t.me/AnimeCrescent')],
+            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •',
+                                  url='https://t.me/AnimeCrescent')],
             [InlineKeyboardButton(f'• ᴊᴏɪɴ {chat.title} •', url=invite_link)]
         ]
         markup = InlineKeyboardMarkup(buttons)
-        caption = f"<b>ʜᴇʏ {user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ _{chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
-        
+        caption = f"<b>ʜᴇʏ {
+            user.mention()},\n\n<blockquote> ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ _{
+            chat.title} ʜᴀs ʙᴇᴇɴ ᴀᴘᴘʀᴏᴠᴇᴅ.</blockquote> </b>"
+
         await client.send_photo(
             chat_id=user.id,
             photo='https://telegra.ph/file/b2fd85c2e657755974a38.jpg',
@@ -66,31 +79,36 @@ async def autoapprove(client, message: ChatJoinRequest):
             reply_markup=markup
         )
 
+
 @Client.on_message(filters.command("reqtime") & is_owner_or_admin)
 async def set_reqtime(client, message: Message):
     global APPROVAL_WAIT_TIME
-    
+
     if len(message.command) != 2 or not message.command[1].isdigit():
         return await message.reply_text("ᴜsᴀɢᴇ: <code>/reqtime {seconds}</code>")
-    
+
     APPROVAL_WAIT_TIME = int(message.command[1])
     await message.reply_text(f"✅ ʀᴇǫᴜᴇsᴛ ᴀᴘᴘʀᴏᴠᴀʟ ᴛɪᴍᴇ sᴇᴛ ᴛᴏ <b>{APPROVAL_WAIT_TIME}</b> sᴇᴄᴏɴᴅs.")
+
 
 @Client.on_message(filters.command("reqmode") & is_owner_or_admin)
 async def toggle_reqmode(client, message: Message):
     global AUTO_APPROVE_ENABLED
-    
-    if len(message.command) != 2 or message.command[1].lower() not in ["on", "off"]:
+
+    if len(message.command) != 2 or message.command[1].lower() not in [
+            "on", "off"]:
         return await message.reply_text("ᴜsᴀɢᴇ: <code>/reqmode on</code> or <code>/reqmode off</code>")
-    
+
     mode = message.command[1].lower()
     AUTO_APPROVE_ENABLED = (mode == "on")
     status = "ᴇɴᴀʙʟᴇᴅ ✅" if AUTO_APPROVE_ENABLED else "ᴅɪsᴀʙʟᴇᴅ ❌"
     await message.reply_text(f"ᴀᴜᴛᴏ-ᴀᴘᴘʀᴏᴠᴀʟ ʜᴀs ʙᴇᴇɴ {status}.")
 
+
 @Client.on_message(filters.command("approveoff") & is_owner_or_admin)
 async def approve_off_command(client, message: Message):
-    if len(message.command) != 2 or not message.command[1].lstrip("-").isdigit():
+    if len(message.command) != 2 or not message.command[1].lstrip(
+            "-").isdigit():
         return await message.reply_text("ᴜsᴀɢᴇ: <code>/approveoff {channel_id}</code>")
     channel_id = int(message.command[1])
     success = await set_approval_off(channel_id, True)
@@ -99,9 +117,11 @@ async def approve_off_command(client, message: Message):
     else:
         await message.reply_text(f"❌ ꜰᴀɪʟᴇᴅ ᴛᴏ sᴇᴛ ᴀᴜᴛᴏ-ᴀᴘᴘʀᴏᴠᴀʟ ᴏꜰꜰ ꜰᴏʀ ᴄʜᴀɴɴᴇʟ <code>{channel_id}</code>.")
 
+
 @Client.on_message(filters.command("approveon") & is_owner_or_admin)
 async def approve_on_command(client, message: Message):
-    if len(message.command) != 2 or not message.command[1].lstrip("-").isdigit():
+    if len(message.command) != 2 or not message.command[1].lstrip(
+            "-").isdigit():
         return await message.reply_text("ᴜsᴀɢᴇ: <code>/approveon {channel_id}</code>")
     channel_id = int(message.command[1])
     success = await set_approval_off(channel_id, False)

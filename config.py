@@ -5,7 +5,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 # Recommended
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "8198964138:AAH3mIYNPNmfMEIScUgJF1P1NZPWqeYZvIY")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 APP_ID = int(os.environ.get("APP_ID", "22505271"))
 API_HASH = os.environ.get("API_HASH", "c89a94fcfda4bc06524d0903977fc81e")
 
@@ -14,17 +14,22 @@ OWNER_ID = int(os.environ.get("OWNER_ID", "7562536848"))
 PORT = os.environ.get("PORT", "8080")
 
 # Database
-DB_URI = os.environ.get("DB_URI", "mongodb://mythwalker45:EmbracedMyth7@ac-t0ouz1b-shard-00-00.pvf15kr.mongodb.net:27017,ac-t0ouz1b-shard-00-01.pvf15kr.mongodb.net:27017,ac-t0ouz1b-shard-00-02.pvf15kr.mongodb.net:27017/?ssl=true&replicaSet=atlas-p26atf-shard-0&authSource=admin&retryWrites=true&w=majority")
-DB_NAME = os.environ.get("DB_NAME", "link")
+DB_URI = os.environ.get("DB_URI", "")
+DB_NAME = os.environ.get("DB_NAME", "linktest")
 
-#Auto approve 
-CHAT_ID = [int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in environ.get('CHAT_ID', '').split()] # dont change anything 
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "<b>{mention},\n\nʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {title} ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.\n\‣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @AnimeCrescent</b>")
+# Auto approve
+CHAT_ID = [
+    int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in environ.get(
+        'CHAT_ID',
+        '').split()]  # dont change anything
+TEXT = environ.get(
+    "APPROVED_WELCOME_TEXT",
+    "<b>{mention},\n\nʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ᴛᴏ ᴊᴏɪɴ {title} ɪs ᴀᴘᴘʀᴏᴠᴇᴅ.\n\\‣ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @AnimeCrescent</b>")
 APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Default
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "40"))
-#--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
+# --- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 
 # Start pic
 START_PIC_FILE_ID = "https://telegra.ph/file/b2fd85c2e657755974a38.jpg"
@@ -65,15 +70,16 @@ CHANNELS_TXT = """<b>›› ᴀɴɪᴍᴇ ᴄʜᴀɴɴᴇʟ: <a href='https://t.
 ›› ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href='https://t.me/ThatKlein'>ᴅɪᴠɪɴᴇ</a>
 </b></blockquote>"""
 
-#--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
+# --- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 # Default
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "👊 ʙᴀᴋᴀ! ɪ'ᴍ ʟᴏʏᴀʟ ᴛᴏ ᴍʏ ᴏᴡɴᴇʀs.\n» <a href='https://t.me/AnimeCrescent'>ᴀɴɪᴍᴇ ᴄʀᴇsᴄᴇɴᴛ</a>"
 
 # Logging
 LOG_FILE_NAME = "links-sharingbot.txt"
-DATABASE_CHANNEL = int(os.environ.get("DATABASE_CHANNEL", "-1002805951723")) # Channel where user links are stored
-#--- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
+# Channel where user links are stored
+DATABASE_CHANNEL = int(os.environ.get("DATABASE_CHANNEL", "-1002805951723"))
+# --- ---- ---- --- --- --- - -- -  - - - - - - - - - - - --  - -
 
 try:
     ADMINS = []
@@ -101,6 +107,7 @@ logging.basicConfig(
     ]
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)

@@ -12,18 +12,23 @@ from pyrogram.filters import Filter
 from config import OWNER_ID
 from database.database import is_admin
 
+
 class IsAdmin(Filter):
     async def __call__(self, client, message):
         return await is_admin(message.from_user.id)
 
+
 is_admin_filter = IsAdmin()
+
 
 class IsOwnerOrAdmin(Filter):
     async def __call__(self, client, message):
         user_id = message.from_user.id
         return user_id == OWNER_ID or await is_admin(user_id)
 
+
 is_owner_or_admin = IsOwnerOrAdmin()
+
 
 async def encode(string):
     string_bytes = string.encode("ascii")
@@ -31,21 +36,24 @@ async def encode(string):
     base64_string = (base64_bytes.decode("ascii")).strip("=")
     return base64_string
 
+
 async def delete_after_delay(message, delay):
     """Delete a message after a specified delay"""
     await asyncio.sleep(delay)
     try:
         await message.delete()
-    except:
+    except BaseException:
         pass
 
 
 async def decode(base64_string):
     base64_string = base64_string.strip("=")
-    base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("ascii")
+    base64_bytes = (base64_string + "=" *
+                    (-len(base64_string) % 4)).encode("ascii")
     string_bytes = base64.urlsafe_b64decode(base64_bytes)
     string = string_bytes.decode("ascii")
     return string
+
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -54,7 +62,9 @@ def get_readable_time(seconds: int) -> str:
     time_suffix_list = ["s", "m", "h", "days"]
     while count < 4:
         count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        remainder, result = divmod(
+            seconds, 60) if count < 3 else divmod(
+            seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
